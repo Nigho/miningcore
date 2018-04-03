@@ -79,7 +79,7 @@ namespace MiningCore.Blockchain.Dash
             if (!string.IsNullOrEmpty(BlockTemplate.Payee))
             {
                 var payeeAddress = BitcoinUtils.AddressToDestination(BlockTemplate.Payee);
-                var payeeReward = BlockTemplate.PayeeAmount ?? (reward / 5);
+                var payeeReward = BlockTemplate.PayeeAmount ?? (reward / 2);
 
                 reward -= payeeReward;
                 rewardToPool -= payeeReward;
