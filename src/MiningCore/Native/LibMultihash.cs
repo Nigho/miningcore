@@ -111,6 +111,9 @@ namespace MiningCore.Native
 
         [DllImport("libmultihash", EntryPoint = "sha3_512_export", CallingConvention = CallingConvention.Cdecl)]
         public static extern int sha3_512(byte* input, byte* output, uint inputLength);
+        
+        [DllImport("libmultihash", EntryPoint = "timetravel_export", CallingConvention = CallingConvention.Cdecl)]
+        public static extern int timetravel(byte* input, byte* output, uint inputLength);
 
         #region Ethash
 

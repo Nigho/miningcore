@@ -41,6 +41,7 @@ namespace MiningCore.Blockchain.Bitcoin
         private static readonly IHashAlgorithm lyra2Rev2 = new Lyra2Rev2();
         private static readonly IHashAlgorithm scrypt_1024_1 = new Scrypt(1024, 1);
         private static readonly IHashAlgorithm skein = new Skein();
+        private static readonly IHashAlgorithm timetravel = new Timetravel();
         private static readonly IHashAlgorithm qubit = new Qubit();
         private static readonly IHashAlgorithm groestlMyriad = new GroestlMyriad();
         private static readonly IHashAlgorithm neoScryptProfile1 = new NeoScrypt(0x80000620);
@@ -66,6 +67,9 @@ namespace MiningCore.Blockchain.Bitcoin
 
         private static readonly BitcoinCoinProperties skeinCoin =
             new BitcoinCoinProperties(1, sha256D, skein, sha256DReverse, "Skein");
+        
+        private static readonly BitcoinCoinProperties timetravelCoin =
+            new BitcoinCoinProperties(1, sha256D, timetravel, sha256DReverse, "Timetravel");
 
         private static readonly BitcoinCoinProperties qubitCoin =
             new BitcoinCoinProperties(1, sha256D, qubit, sha256DReverse, "Qubit");
@@ -111,6 +115,9 @@ namespace MiningCore.Blockchain.Bitcoin
 
             // Groestl
             { CoinType.GRS, groestlCoin },
+            
+            // Timetravel
+            { CoinType.MAC, timetravelCoin },
 
             // Lyra2Rev2 - Variant A
             { CoinType.MONA, lyra2Rev2CoinVariantA },

@@ -57,6 +57,7 @@ namespace MiningCore.Configuration
         GBX,  // GoByte
         CRC,  // CrowdCoin
         BTCP, // Bitcoin Private
+        MAC, // Machinecoin
     }
 
     public class CoinConfig
