@@ -70,6 +70,11 @@ extern "C" MODULE_API void x11_export(const char* input, char* output, uint32_t 
 	x11_hash(input, output, input_len);
 }
 
+extern "C" MODULE_API void timetravel_export(const char* input, char* output, uint32_t input_len)
+{
+	timetravel_hash(input, output, input_len);
+}
+
 extern "C" MODULE_API void x17_export(const char* input, char* output, uint32_t input_len)
 {
     x17_hash(input, output, input_len);
