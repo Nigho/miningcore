@@ -34,6 +34,7 @@ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 #include "x13.h"
 #include "x14.h"
 #include "nist5.h"
+#include "timetravel.h"
 #include "x15.h"
 #include "x17.h"
 #include "fresh.h"
