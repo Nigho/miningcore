@@ -36,11 +36,7 @@ namespace MiningCore.Blockchain.Dash
 
             var tx = new Transaction();
             
-            Console.WriteLine(rewardToPool);
-            
             rewardToPool = CreateDashOutputs(tx, blockReward);
-            
-            Console.WriteLine(rewardToPool);
 
             // Finally distribute remaining funds to pool
             tx.Outputs.Insert(0, new TxOut(rewardToPool, poolAddressDestination)
@@ -62,11 +58,6 @@ namespace MiningCore.Blockchain.Dash
 
                     reward -= payeeReward;
                     rewardToPool -= payeeReward;
-                    
-                    Console.WriteLine("first if");
-                    Console.WriteLine(payeeReward);
-                    Console.WriteLine(rewardToPool);
-                    Console.WriteLine(reward);
 
                     tx.AddOutput(payeeReward, payeeAddress);
                 }
@@ -81,11 +72,6 @@ namespace MiningCore.Blockchain.Dash
 
                         reward -= payeeReward;
                         rewardToPool -= payeeReward;
-                        
-                        Console.WriteLine("second if");
-                        Console.WriteLine(payeeReward);
-                        Console.WriteLine(rewardToPool);
-                        Console.WriteLine(reward);
 
                         tx.AddOutput(payeeReward, payeeAddress);
                     }
@@ -99,11 +85,6 @@ namespace MiningCore.Blockchain.Dash
 
                 reward -= payeeReward;
                 rewardToPool -= payeeReward;
-                
-                Console.WriteLine("third if");
-                Console.WriteLine(payeeReward);
-                Console.WriteLine(rewardToPool);
-                Console.WriteLine(reward);
 
                 tx.AddOutput(payeeReward, payeeAddress);
             }
