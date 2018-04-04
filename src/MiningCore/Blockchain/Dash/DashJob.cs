@@ -58,7 +58,7 @@ namespace MiningCore.Blockchain.Dash
                     reward -= payeeReward;
                     rewardToPool -= payeeReward;
                     
-                    Console.WriteLine('first if');
+                    Console.WriteLine("first if");
                     Console.WriteLine(payeeReward);
                     Console.WriteLine(rewardToPool);
                     Console.WriteLine(reward);
@@ -77,7 +77,7 @@ namespace MiningCore.Blockchain.Dash
                         reward -= payeeReward;
                         rewardToPool -= payeeReward;
                         
-                        Console.WriteLine('second if');
+                        Console.WriteLine("second if");
                         Console.WriteLine(payeeReward);
                         Console.WriteLine(rewardToPool);
                         Console.WriteLine(reward);
@@ -95,7 +95,7 @@ namespace MiningCore.Blockchain.Dash
                 reward -= payeeReward;
                 rewardToPool -= payeeReward;
                 
-                Console.WriteLine('third if');
+                Console.WriteLine("third if");
                 Console.WriteLine(payeeReward);
                 Console.WriteLine(rewardToPool);
                 Console.WriteLine(reward);
