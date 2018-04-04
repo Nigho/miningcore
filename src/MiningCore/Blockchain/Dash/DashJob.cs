@@ -58,6 +58,7 @@ namespace MiningCore.Blockchain.Dash
                     reward -= payeeReward;
                     rewardToPool -= payeeReward;
                     
+                    Console.WriteLine('first if');
                     Console.WriteLine(payeeReward);
                     Console.WriteLine(rewardToPool);
                     Console.WriteLine(reward);
@@ -67,6 +68,7 @@ namespace MiningCore.Blockchain.Dash
 
                 else if (BlockTemplate.SuperBlocks.Length > 0)
                 {
+                    Console.WriteLine(BlockTemplate.SuperBlocks.Length);
                     foreach(var superBlock in BlockTemplate.SuperBlocks)
                     {
                         var payeeAddress = BitcoinUtils.AddressToDestination(superBlock.Payee);
@@ -74,6 +76,11 @@ namespace MiningCore.Blockchain.Dash
 
                         reward -= payeeReward;
                         rewardToPool -= payeeReward;
+                        
+                        Console.WriteLine('second if');
+                        Console.WriteLine(payeeReward);
+                        Console.WriteLine(rewardToPool);
+                        Console.WriteLine(reward);
 
                         tx.AddOutput(payeeReward, payeeAddress);
                     }
@@ -87,6 +94,11 @@ namespace MiningCore.Blockchain.Dash
 
                 reward -= payeeReward;
                 rewardToPool -= payeeReward;
+                
+                Console.WriteLine('third if');
+                Console.WriteLine(payeeReward);
+                Console.WriteLine(rewardToPool);
+                Console.WriteLine(reward);
 
                 tx.AddOutput(payeeReward, payeeAddress);
             }
