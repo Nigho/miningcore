@@ -58,7 +58,9 @@ namespace MiningCore.Blockchain.Dash
                     reward -= payeeReward;
                     rewardToPool -= payeeReward;
                     
-                    LogPrintf("Reward %s %d %r", payeeReward, rewardToPool, reward);
+                    Console.WriteLine(payeeReward);
+                    Console.WriteLine(rewardToPool);
+                    Console.WriteLine(reward);
 
                     tx.AddOutput(payeeReward, payeeAddress);
                 }
