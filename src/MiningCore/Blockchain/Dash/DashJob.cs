@@ -34,13 +34,7 @@ namespace MiningCore.Blockchain.Dash
             var blockReward = new Money(BlockTemplate.CoinbaseValue * 2, MoneyUnit.Satoshi);
             rewardToPool = new Money(BlockTemplate.CoinbaseValue, MoneyUnit.Satoshi);
 
-            var tx = new Transaction();
-            
-            if (blockReward == new Money(9000000000, MoneyUnit.Satoshi))
-            {
-                blockReward = new Money(BlockTemplate.CoinbaseValue, MoneyUnit.Satoshi);
-            }
-            
+            var tx = new Transaction();            
             rewardToPool = CreateDashOutputs(tx, blockReward);
 
             // Finally distribute remaining funds to pool
