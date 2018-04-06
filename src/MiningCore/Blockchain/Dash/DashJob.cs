@@ -33,6 +33,12 @@ namespace MiningCore.Blockchain.Dash
         {
             var blockReward = new Money(BlockTemplate.CoinbaseValue, MoneyUnit.Satoshi);
             rewardToPool = new Money(BlockTemplate.CoinbaseValue, MoneyUnit.Satoshi);
+            
+            // if no MN is provided by daemon, double the reward
+            if (string.IsNullOrEmpty(BlockTemplate.Masternode.Payee))
+            {
+                blockReward = new Money(BlockTemplate.CoinbaseValue * 2, MoneyUnit.Satoshi);
+            }
 
             var tx = new Transaction();            
             rewardToPool = CreateDashOutputs(tx, blockReward);
@@ -63,14 +69,17 @@ namespace MiningCore.Blockchain.Dash
 
                 else if (BlockTemplate.SuperBlocks.Length > 0)
                 {
-                    Console.WriteLine(BlockTemplate.SuperBlocks.Length);
                     foreach(var superBlock in BlockTemplate.SuperBlocks)
                     {
                         var payeeAddress = BitcoinUtils.AddressToDestination(superBlock.Payee);
                         var payeeReward = superBlock.Amount;
 
-                        reward -= payeeReward;
-                        rewardToPool -= payeeReward;
+                        // don't substract superblock payment from block reward
+                        // superblocks still have the same block reward for miners
+                        // and additional superblock outputs
+
+                        /*reward -= payeeReward;
+                        rewardToPool -= payeeReward;*/
 
                         tx.AddOutput(payeeReward, payeeAddress);
                     }
