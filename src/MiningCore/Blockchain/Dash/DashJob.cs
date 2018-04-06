@@ -31,13 +31,13 @@ namespace MiningCore.Blockchain.Dash
     {
         protected override Transaction CreateOutputTransaction()
         {
-            var blockReward = new Money(BlockTemplate.CoinbaseValue, MoneyUnit.Satoshi);
+            var blockReward = new Money(BlockTemplate.CoinbaseValue * 2, MoneyUnit.Satoshi);
             rewardToPool = new Money(BlockTemplate.CoinbaseValue, MoneyUnit.Satoshi);
             
             // if no MN is provided by daemon, double the reward
             if (string.IsNullOrEmpty(BlockTemplate.Masternode.Payee))
             {
-                blockReward = new Money(BlockTemplate.CoinbaseValue * 2, MoneyUnit.Satoshi);
+                blockReward = new Money(BlockTemplate.CoinbaseValue, MoneyUnit.Satoshi);
             }
 
             var tx = new Transaction();            
@@ -54,7 +54,7 @@ namespace MiningCore.Blockchain.Dash
 
         private Money CreateDashOutputs(Transaction tx, Money reward)
         {
-            if (BlockTemplate.Masternode != null && BlockTemplate.SuperBlocks != null)
+            if (BlockTemplate.Masternode != null || BlockTemplate.SuperBlocks != null)
             {
                 if (!string.IsNullOrEmpty(BlockTemplate.Masternode.Payee))
                 {
